@@ -1,0 +1,93 @@
+import 'package:task/data/home/model/table_model.dart';
+import 'package:task/domain/home/entity/data_entity.dart';
+
+class DataModel extends DataEntity {
+  const DataModel({
+    super.barcode,
+    super.branch,
+    super.category,
+    super.certNo,
+    super.chainWt,
+    super.clsPcs,
+    super.clsWt,
+    super.collection,
+    super.counter,
+    super.cusName,
+    super.description,
+    super.diaPcs,
+    super.diaWt,
+    super.grossWt,
+    super.huidNo,
+    super.imageLink,
+    super.inStkSince,
+    super.kt,
+    super.lCharges,
+    super.lRate,
+    super.location,
+    super.mRate,
+    super.mValue,
+    super.metalGrp,
+    super.mfgdBy,
+    super.mrp,
+    super.netWt,
+    super.notes,
+    super.oCharges,
+    super.orderNo,
+    super.pcs,
+    super.quality,
+    super.rCharges,
+    super.size,
+    super.source,
+    super.stkSection,
+    super.status,
+    super.tableEntity,
+  });
+
+  factory DataModel.fromJson(Map<String, dynamic> json) {
+    return DataModel(
+      barcode: json["Barcode"] ?? '',
+      location: json["Location"] ?? '',
+      branch: json["Branch"] ?? '',
+      status: json["Status"] ?? '',
+      counter: json["Counter"] ?? '',
+      source: json["Source"] ?? '',
+      category: json["Category"] ?? '',
+      collection: json["Collection"] ?? '',
+      description: json["Description"] ?? '',
+      metalGrp: json["Metal_Grp"] ?? '',
+      stkSection: json["STK_Section"] ?? '',
+      mfgdBy: json["Mfgd_By"] ?? '',
+      notes: json["Notes"] ?? '',
+      inStkSince: json["In_STK_Since"] ?? '',
+      certNo: json["Cert_No"] ?? '',
+      huidNo: json["HUID_No"] ?? '',
+      orderNo: json["Order_No"] ?? '',
+      cusName: json["Cus_Name"] ?? '',
+      size: json["Size"] as String?,
+      quality: json["Quality"] as String? ?? '',
+      kt: (json["KT"])?.toDouble() ?? 0,
+      pcs: json["Pcs"] ?? 0.0,
+      grossWt: (json["Gross_Wt"])?.toDouble() ?? 0.0,
+      netWt: (json["Net_Wt"])?.toDouble() ?? 0.0,
+      diaPcs: json["Dia_Pcs"] ?? 0.0,
+      diaWt: (json["Dia_Wt"])?.toDouble() ?? 0.0,
+      clsPcs: json["Cls_Pcs"] ?? 0.0,
+      clsWt: json["Cls_Wt"] ?? 0.0,
+      chainWt: json["Chain_Wt"] ?? 0.0,
+      mRate: json["M_Rate"] ?? 0.0,
+      mValue: json["M_Value"] ?? 0.0,
+      lRate: json["L_Rate"] ?? 0.0,
+      lCharges: json["L_Charges"] ?? 0.0,
+      rCharges: json["R_Charges"] ?? 0.0,
+      oCharges: json["O_Charges"] ?? 0.0,
+      mrp: (json["MRP"])?.toDouble() ?? 0.0,
+      imageLink: json["image_link"] ?? '',
+      tableEntity: json['Table_Data'] != null
+          ? (json['Table_Data'] as List<dynamic>)
+              .map<TableModel>(
+                  (e) => TableModel.fromJson(e as Map<String, dynamic>))
+              .toList()
+          : [TableModel.empty],
+    );
+  }
+}
