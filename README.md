@@ -2,6 +2,14 @@
 
 A new Flutter project.
 
+## how to run the project
+1. Clone the project
+2. flutter pub get
+3. on terminal run : dart pub run build_runner build --delete-conflicting-outputs
+4. then run the project
+
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
